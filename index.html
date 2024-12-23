@@ -152,20 +152,23 @@
             cursor: pointer;
         }
 
+        /* Move sticker 1 a bit down */
         .sticker1 {
-            top: 15%;
-            left: 20%;
+            top: 25%;    /* Moved down from 15% to 25% */
+            left: 20%;   /* Keeping the left position unchanged */
         }
 
+        /* Move sticker 2 a bit to the right */
         .sticker2 {
-            top: 40%;
-            right: 10%;
+            top: 40%;    /* Keeping the top position unchanged */
+            right: 5%;   /* Moved from 10% to 5% to shift the sticker further to the right */
         }
 
+        /* Move sticker 3 a bit down */
         .sticker3 {
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: 15%;    /* Moved up from 10% to 15% to move it slightly down */
+            left: 50%;      /* Keeping the left position unchanged */
+            transform: translateX(-50%); /* To keep it horizontally centered */
         }
 
         /* Floating Animation */
@@ -240,6 +243,23 @@
 
         // Generate snowflakes every 300ms
         setInterval(createSnowflake, 300);
+
+        // Create Twinkling Lights
+        function createTwinkleLight() {
+            const light = document.createElement('div');
+            light.className = 'light';
+            light.style.left = Math.random() * 100 + 'vw';
+            light.style.top = Math.random() * 100 + 'vh';
+            document.body.appendChild(light);
+
+            // Remove the light after some time
+            setTimeout(() => {
+                light.remove();
+            }, 1500);
+        }
+
+        // Generate twinkle lights every 300ms
+        setInterval(createTwinkleLight, 300);
 
         // Function to open the modal and display all holiday wishes
         function openModal() {
